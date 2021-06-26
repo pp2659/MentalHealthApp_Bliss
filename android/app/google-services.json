@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "594512418507",
+    "project_id": "bliss-c5dfa",
+    "storage_bucket": "bliss-c5dfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594512418507:android:6ca4ad7f79cd876c66ad4e",
+        "android_client_info": {
+          "package_name": "com.example.bliss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594512418507-r8k5s1t97hkc6h0jhlb8bl171siqlg3b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL72AS0TviymsKc5Gy3sLCpqWZSLFiUS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594512418507-r8k5s1t97hkc6h0jhlb8bl171siqlg3b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
