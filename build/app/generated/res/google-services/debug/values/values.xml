@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">594512418507-r8k5s1t97hkc6h0jhlb8bl171siqlg3b.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">594512418507</string>
+    <string name="google_api_key" translatable="false">AIzaSyAL72AS0TviymsKc5Gy3sLCpqWZSLFiUS0</string>
+    <string name="google_app_id" translatable="false">1:594512418507:android:6ca4ad7f79cd876c66ad4e</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAL72AS0TviymsKc5Gy3sLCpqWZSLFiUS0</string>
+    <string name="google_storage_bucket" translatable="false">bliss-c5dfa.appspot.com</string>
+    <string name="project_id" translatable="false">bliss-c5dfa</string>
+</resources>
