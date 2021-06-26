@@ -1,5 +1,6 @@
 import 'package:bliss/Screen/Diary.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:date_time_format/date_time_format.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,8 @@ class _DiaryTextState extends State<DiaryText> {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   String name='',mobile='',doctor='',reason='',time='',height='',weight='',address='',blood='',email='';
+  DateTime date =DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -164,60 +167,67 @@ class _DiaryTextState extends State<DiaryText> {
                               SizedBox(height: 10,),
 
                               Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Container(
-                                      height: .75 * (MediaQuery.of(context).size.height / 12),
-                                      width: 6.1 * (MediaQuery.of(context).size.width / 15),
-                                      //margin: EdgeInsets.only(bottom: 20),
-                                      child: RaisedButton(
-                                        elevation: 1.0,
-                                        color: mainColor,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(30.0),
-                                          side: BorderSide(color: mainColor),
-                                        ),
-                                        onPressed: () {
-                                          print(reason);
-                                          _firestore.collection('diary').doc(auth.currentUser.uid).collection('diary detail').add(
-                                            {
-                                              'name':'diary',
-                                               'field':reason,
-                                            }
-                                          ).then((value) => print(value.id));
-
-                                        },
-                                        child: InkWell(
-                                          onTap: (){
+                                child: SingleChildScrollView(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Container(
+                                        height: .75 * (MediaQuery.of(context).size.height / 12),
+                                        width: 6.1 * (MediaQuery.of(context).size.width / 15),
+                                        //margin: EdgeInsets.only(bottom: 20),
+                                        child: RaisedButton(
+                                          elevation: 1.0,
+                                          color: mainColor,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(30.0),
+                                            side: BorderSide(color: mainColor),
+                                          ),
+                                          onPressed: () {
                                             print(reason);
                                             _firestore.collection('diary').doc(auth.currentUser.uid).collection('diary detail').add(
-                                                {
-                                                  'name':'diary',
-                                                  'field':reason,
-                                                }
+                                              {
+                                                'name':'diary $date', //TODO 1
+                                                 'field':reason,
+                                              }
                                             ).then((value) => print(value.id));
-                                            print('successful');
-                                            _scaffoldKey.currentState.showSnackBar(
-                                                new SnackBar(
-                                                    content: new Text('Diary Saved'),
-                                                )
-                                            );
+
+
+
                                           },
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              'Save',
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  color: Colors.white
+                                          child: InkWell(
+                                            onTap: (){
+                                              print(reason);
+                                              _firestore.collection('diary').doc(auth.currentUser.uid).collection('diary detail').add(
+                                                  {
+                                                    'name':'diary $date',
+                                                    'field':reason,
+
+                                                  }
+                                              ).then((value) => print(value.id));
+                                              print('successful');
+                                              _scaffoldKey.currentState.showSnackBar(
+                                                  new SnackBar(
+                                                      content: new Text('Diary Saved'),
+                                                  )
+                                              );
+
+
+                                            },
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                'Save',
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.white
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],

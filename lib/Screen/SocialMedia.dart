@@ -198,34 +198,26 @@ class _SocialMediaState extends State<SocialMedia> {
                 image: NetworkImage(urlPost),
               )),
         ),
-        Positioned(
-          bottom: 20,
-          right: 20,
+        // Positioned(
+        //   bottom: 20,
+        //   right: 20,
+        //
+        //
         //   child: IconButton(
-        //     icon: Icon(Icons.favorite, size: 35, color: Colors.white.withOpacity(0.7),
-        //     onPressed: (){
+        //     icon: Icon(Icons.favorite),
+        //     color: _favIconColor,
+        //     iconSize: 35,
+        //     onPressed: () {
         //       setState(() {
-        //         color: Colors.red;
+        //         if(_favIconColor == Colors.white.withOpacity(0.7)){
+        //           _favIconColor = Colors.red;
+        //         }else{
+        //           _favIconColor = Colors.white.withOpacity(0.7);
+        //         }
         //       });
         //     },
         //   ),
         // )
-
-          child: IconButton(
-            icon: Icon(Icons.favorite),
-            color: _favIconColor,
-            iconSize: 35,
-            onPressed: () {
-              setState(() {
-                if(_favIconColor == Colors.white.withOpacity(0.7)){
-                  _favIconColor = Colors.red;
-                }else{
-                  _favIconColor = Colors.white.withOpacity(0.7);
-                }
-              });
-            },
-          ),
-        )
       ],
     );
   }

@@ -1,4 +1,5 @@
 
+import 'package:bliss/Questions/testhealth_Age.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/rendering.dart';
@@ -138,6 +139,32 @@ class _DashboardState extends State<Dashboard> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20.0),
+                            child: InkWell(
+                              onTap: (){
+
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            TestHealth()));
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  height: 75,
+                                  width: MediaQuery.of(context).size.width*1,
+
+                                  color: Colors.lightBlue,
+                                  child: Center(child: Text("Take a self-test", style: TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.w700),)),
+
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20,),
+
                           Text(
                             'Doctors',
                             style: TextStyle(
