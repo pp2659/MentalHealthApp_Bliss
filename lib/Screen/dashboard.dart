@@ -1,5 +1,6 @@
 
 import 'package:bliss/Questions/testhealth_Age.dart';
+import 'package:bliss/Screen/Appointment.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/rendering.dart';
@@ -249,7 +250,7 @@ class _DashboardState extends State<Dashboard> {
                                                               onPressed: () {
                                                                 Navigator.push(
                                                                   context,
-                                                                  MaterialPageRoute(builder: (context) =>DetailsPage()),
+                                                                  MaterialPageRoute(builder: (context) =>Appointment()),
                                                                 );
                                                               },
                                                             ),

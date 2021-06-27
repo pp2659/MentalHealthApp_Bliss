@@ -1,4 +1,5 @@
 import 'package:bliss/Questions/testhealth_Age.dart';
+import 'package:bliss/Screen/Appointment.dart';
 import 'package:bliss/constants.dart';
 import 'Screen/SocialMedia.dart';
 import 'Screen/screen1.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         '/socialmedia': (context) =>SocialMedia(),
         '/testhealth': (context) =>TestHealth(),
       },
-      home: TestHealth(),
+      home: Dashboard(),
     );
   }
 }
