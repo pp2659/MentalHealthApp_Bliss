@@ -221,7 +221,7 @@ class _AppointmentState extends State<Appointment> {
                                 dropdownValue = newValue;
                               });
                             },
-                            items: <String>['One', 'Two', 'Free', 'Four']
+                            items: <String>['P.Sharma', 'Aditya Narayan', 'S.Naidu', 'P.Paul', 'Harsh']
                                 .map<DropdownMenuItem<String>>((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,

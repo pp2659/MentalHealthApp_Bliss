@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         '/socialmedia': (context) =>SocialMedia(),
         '/testhealth': (context) =>TestHealth(),
       },
-      home: Dashboard(),
+      home: ScreenOne(),
     );
   }
 }

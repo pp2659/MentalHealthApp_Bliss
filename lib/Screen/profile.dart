@@ -112,15 +112,15 @@ class ProfileState extends State<Profile> {
             ),
             Center(
               child: Container(
-                  height: 214,
-                  width: 214,
+                  height: 120,
+                  width: 120,
                   child: Image.asset(
                     'assets/profile.jpg',
                     fit: BoxFit.contain,
                   )),
             ),
             SizedBox(
-              height: 15,
+              height: 1,
             ),
             Text(
               email,
@@ -128,6 +128,14 @@ class ProfileState extends State<Profile> {
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   fontSize: 16),
+            ),
+            SizedBox(height: 20,),
+            Text(
+              "Mood Tracker",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.lightBlue,
+                  fontSize: 30),
             ),
            chartData.isNotEmpty? Padding(
              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 12),
