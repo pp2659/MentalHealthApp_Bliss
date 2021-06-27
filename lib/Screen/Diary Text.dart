@@ -6,7 +6,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bliss/constants.dart';
 import 'dart:ui';
-final _firestore= FirebaseFirestore.instance;
+import 'package:date_time_format/date_time_format.dart';
+
+final _firestore = FirebaseFirestore.instance;
+
 class DiaryText extends StatefulWidget {
   @override
   _DiaryTextState createState() => _DiaryTextState();
@@ -16,8 +19,17 @@ class _DiaryTextState extends State<DiaryText> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   final FirebaseAuth auth = FirebaseAuth.instance;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  String name='',mobile='',doctor='',reason='',time='',height='',weight='',address='',blood='',email='';
-  DateTime date =DateTime.now();
+  String name = '',
+      mobile = '',
+      doctor = '',
+      reason = '',
+      time = '',
+      height = '',
+      weight = '',
+      address = '',
+      blood = '',
+      email = '';
+  DateTime date = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +60,6 @@ class _DiaryTextState extends State<DiaryText> {
                   ),
                 ),
               ),
-
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -61,7 +72,10 @@ class _DiaryTextState extends State<DiaryText> {
                         padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(context,MaterialPageRoute(builder: (context)=>Journal()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Journal()));
                           },
                           child: Icon(
                             Icons.arrow_back,
@@ -78,7 +92,8 @@ class _DiaryTextState extends State<DiaryText> {
                             Text(
                               'Write your thoughts!!',
                               style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.height / 30,
+                                fontSize:
+                                    MediaQuery.of(context).size.height / 30,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
                               ),
@@ -116,10 +131,11 @@ class _DiaryTextState extends State<DiaryText> {
                     ],
                   ),
                   Padding(
-                    padding:
-                    const EdgeInsets.only(left: 25.0, right: 25.0, top: 40.0),
+                    padding: const EdgeInsets.only(
+                        left: 25.0, right: 25.0, top: 40.0),
                     child: Card(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
                       child: Padding(
                         padding: EdgeInsets.all(20),
                         child: Form(
@@ -127,12 +143,22 @@ class _DiaryTextState extends State<DiaryText> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-
                               Text(
                                 "Diary Entry",
                                 style: TextStyle(
                                   fontSize: 20,
                                   color: mainColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                DateTime.now().format("d-M-Y  h:i A "),
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black38,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -152,7 +178,6 @@ class _DiaryTextState extends State<DiaryText> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-
                                 ),
                                 validator: (value) {
                                   if (value.isEmpty) {
@@ -160,68 +185,46 @@ class _DiaryTextState extends State<DiaryText> {
                                   }
                                   return null;
                                 },
-                                onChanged: (value){
-                                  reason=value;
+                                onChanged: (value) {
+                                  reason = value;
                                 },
                               ),
-                              SizedBox(height: 10,),
-
+                              SizedBox(
+                                height: 10,
+                              ),
                               Center(
                                 child: SingleChildScrollView(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Container(
-                                        height: .75 * (MediaQuery.of(context).size.height / 12),
-                                        width: 6.1 * (MediaQuery.of(context).size.width / 15),
+                                        height: .75 *
+                                            (MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                12),
+                                        width: 6.1 *
+                                            (MediaQuery.of(context).size.width /
+                                                15),
                                         //margin: EdgeInsets.only(bottom: 20),
                                         child: RaisedButton(
                                           elevation: 1.0,
                                           color: mainColor,
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(30.0),
+                                            borderRadius:
+                                                BorderRadius.circular(30.0),
                                             side: BorderSide(color: mainColor),
                                           ),
                                           onPressed: () {
-                                            print(reason);
-                                            _firestore.collection('diary').doc(auth.currentUser.uid).collection('diary detail').add(
-                                              {
-                                                'name':'diary $date', //TODO 1
-                                                 'field':reason,
-                                              }
-                                            ).then((value) => print(value.id));
-
-
-
+                                            saveDiary();
                                           },
-                                          child: InkWell(
-                                            onTap: (){
-                                              print(reason);
-                                              _firestore.collection('diary').doc(auth.currentUser.uid).collection('diary detail').add(
-                                                  {
-                                                    'name':'diary $date',
-                                                    'field':reason,
-
-                                                  }
-                                              ).then((value) => print(value.id));
-                                              print('successful');
-                                              _scaffoldKey.currentState.showSnackBar(
-                                                  new SnackBar(
-                                                      content: new Text('Diary Saved'),
-                                                  )
-                                              );
-
-
-                                            },
-                                            child: Align(
-                                              alignment: Alignment.center,
-                                              child: Text(
-                                                'Save',
-                                                style: TextStyle(
-                                                    fontSize: 20,
-                                                    color: Colors.white
-                                                ),
-                                              ),
+                                          child: Align(
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              'Save',
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.white),
                                             ),
                                           ),
                                         ),
@@ -245,4 +248,33 @@ class _DiaryTextState extends State<DiaryText> {
     );
   }
 
+  saveDiary() {
+    showCupertinoDialog(
+        context: context,
+        builder: (context) => CupertinoAlertDialog(
+              title: Text("Saving your diary..."),
+              content: Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                ),
+              ),
+            ));
+    print(reason);
+    _firestore
+        .collection('diary')
+        .doc(auth.currentUser.uid)
+        .collection('diary detail')
+        .add({
+      'name': 'diary ${date.format("d-M-Y h:i A ")}',
+      'field': reason,
+    }).then((value) {
+      print(value.id);
+      print('successful');
+      Navigator.pop(context);
+      _scaffoldKey.currentState.showSnackBar(new SnackBar(
+        content: new Text('Diary Saved'),
+      ));
+      Navigator.pop(context);
+    });
+  }
 }

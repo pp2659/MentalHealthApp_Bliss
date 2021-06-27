@@ -8,14 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'Diary Text.dart';
 
-class Journal extends StatefulWidget
-{
+class Journal extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return JournalState();
   }
-
 }
 
 class JournalState extends State<Journal> {
@@ -29,8 +27,7 @@ class JournalState extends State<Journal> {
       Navigator.of(context)
           .pushNamedAndRemoveUntil('/dashboard', (route) => false);
     } else if (_selectedIndex == 1) {
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil('/diary', (route) => false);
+      Navigator.of(context).pushNamedAndRemoveUntil('/diary', (route) => false);
     } else if (_selectedIndex == 3) {
       //TODO profile page
       Navigator.of(context)
@@ -41,11 +38,10 @@ class JournalState extends State<Journal> {
           .pushNamedAndRemoveUntil('/socialmedia', (route) => false);
     }
   }
-    @override
+
+  @override
   Widget build(BuildContext context) {
-      Size mq = MediaQuery
-          .of(context)
-          .size;
+    Size mq = MediaQuery.of(context).size;
     // TODO: implement build
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -57,64 +53,92 @@ class JournalState extends State<Journal> {
         child: Icon(Icons.add),
         elevation: 2.0,
       ),
-      body:  SingleChildScrollView(
-        physics: ScrollPhysics(),
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-             Image(
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image(
               image: AssetImage('assets/bg.png'),
-             ),
-             Padding(
-                 padding: EdgeInsets.all(0),
-                 child: Image.asset('assets/journal.png'),
-             ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text('Diary',style: TextStyle(fontSize:24 ,fontWeight: FontWeight.bold),),
-                SizedBox(
-                  height: 15,
-                ),
-                StreamBuilder(
-                  stream: FirebaseFirestore.instance.collection('diary').doc(auth.currentUser.uid).collection('diary detail').snapshots(),
-                  builder: (context,AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if(!snapshot.hasData)
-                      {
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                    return ListView(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      children: snapshot.data.docs.map((document) {
-                        return GestureDetector(
-                          onTap: (){
-                           Navigator.push(context,MaterialPageRoute(builder: (context)=>DiaryResult(document['field'])));
-                          },
-                          child: Card(
-                            elevation: 6,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            child: Container(
-                              padding: EdgeInsets.all(10),
-                              height: 70,
-                              child: Text("${document['name']}", style: TextStyle(
-                                  color: mainColor,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),),
+            ),
+            Padding(
+              padding: EdgeInsets.all(0),
+              child: Image.asset('assets/journal.png'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Diary',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('diary')
+                  .doc(auth.currentUser.uid)
+                  .collection('diary detail')
+                  .snapshots(),
+              builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: ListView(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    children: snapshot.data.docs.map((document) {
+                      print(document['name'].toString());
+                      return Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: ListTile(
+                              tileColor: mainColor.withOpacity(0.1),
+                              title: Text(
+                                  "${document['name'].toString().split(" ")[0]} ${document['name'].toString().split(" ")[1]}",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold)),
+                              subtitle: Text(
+                                  "${document['name'].toString().split(" ")[2]} ${document['name'].toString().split(" ")[3]}"),
+                              trailing: Icon(
+                                Icons.chevron_right,
+                                color: mainColor,
+                                size: 36,
+                              ),
+                              leading: CircleAvatar(
+                                  backgroundColor:
+                                      Colors.blueAccent.withOpacity(0.1),
+                                  child: Icon(
+                                    Icons.analytics,
+                                    color: Colors.blue,
+                                  )),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            DiaryResult(document['field'])));
+                              },
                             ),
                           ),
-                        );
-                      }).toList(),
-                    );
-                  },
-                ),
-            ],
-          ),
+                          SizedBox(
+                            height: 10,
+                          )
+                        ],
+                      );
+                    }).toList(),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: NavigationBar(
@@ -127,7 +151,6 @@ class JournalState extends State<Journal> {
         ],
         page: _selectedIndex,
       ),
-
     );
   }
 }

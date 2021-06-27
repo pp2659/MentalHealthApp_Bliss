@@ -40,7 +40,7 @@ dependencies:
   flutter_chat:
   date_time_format: ^2.0.1
   http:
-  shared_preferences:
+  mailer:
 
 dev_dependencies:
   flutter_test:
