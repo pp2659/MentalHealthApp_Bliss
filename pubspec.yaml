@@ -40,6 +40,7 @@ dependencies:
   audioplayer:
   flutter_chat:
   date_time_format: ^2.0.1
+  http:
 
 dev_dependencies:
   flutter_test:
