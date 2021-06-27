@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         '/socialmedia': (context) =>SocialMedia(),
         '/testhealth': (context) =>TestHealth(),
       },
-      home: ScreenOne(),
+      home: TestHealth(),
     );
   }
 }
