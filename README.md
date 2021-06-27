@@ -7,7 +7,7 @@ Our project is mental health care mobile application. We will developed an appli
 ## Prioritizing Your Well-Being
 
 # AIM
-## Our project is mental health care mobile application. We will developed an application that would allow people can get in touch with medical experts and can share their mental health-related problem, also get other features like mood tracker, podcast, meditational music, maintain journal, ai based self test. We aim at normalizing mental health care.
+ Our project is mental health care mobile application. We will developed an application that would allow people can get in touch with medical experts and can share their mental health-related problem, also get other features like mood tracker, podcast, meditational music, maintain journal, ai based self test. We aim at normalizing mental health care.
 
 ## What is Mental illness?
 
