@@ -49,7 +49,10 @@ The project will cover some very important features as listed below:
 | ![enter image description here](https://i.ibb.co/nw9M1zZ/Whats-App-Image-2021-06-27-at-3-38-09-PM-5.jpg) | ![enter image description here](https://i.ibb.co/NytQ6Qt/Whats-App-Image-2021-06-27-at-3-38-09-PM.jpg) |![enter image description here](https://i.ibb.co/mHQ87Qw/Whats-App-Image-2021-06-27-at-3-41-35-PM.jpg)|![enter image description here](https://i.ibb.co/Jqyc4hg/Whats-App-Image-2021-06-27-at-3-38-09-PM-2.jpg)|
 
 ## PPT link
-[https://drive.google.com/file/d/1IsDSeQNajdgFFY_nj9ICV86ddDZBujfM/view?usp=sharing](https://drive.google.com/file/d/1IsDSeQNajdgFFY_nj9ICV86ddDZBujfM/view?usp=sharing)
+[Click Here To See The PPT](https://drive.google.com/file/d/1IsDSeQNajdgFFY_nj9ICV86ddDZBujfM/view?usp=sharing)
+
+## Video link
+[Click Here To See The Video](https://youtu.be/wl9Wwmn5vGg)
 
 ## Download the App
 <a href="https://github.com/pp2659/HackTheMountain-Bliss-/raw/main/release.apk" title="Download now"><img src="https://i.ibb.co/kHy4pMz/download.png" alt="download" border="0"></a>
