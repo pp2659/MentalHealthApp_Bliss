@@ -51,4 +51,7 @@ The project will cover some very important features as listed below:
 ## PPT link
 [https://drive.google.com/file/d/1IsDSeQNajdgFFY_nj9ICV86ddDZBujfM/view?usp=sharing](https://drive.google.com/file/d/1IsDSeQNajdgFFY_nj9ICV86ddDZBujfM/view?usp=sharing)
 
+## Download the App
+<a href="https://github.com/pp2659/HackTheMountain-Bliss-/raw/main/release.apk" title="Download now"><img src="https://i.ibb.co/kHy4pMz/download.png" alt="download" border="0"></a>
+
 
