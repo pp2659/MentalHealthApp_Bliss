@@ -11,46 +11,49 @@ class ScreenOne extends StatefulWidget {
 
 class _ScreenOneState extends State<ScreenOne> {
   Widget _title() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30.0),
-      child: Row(
-        //mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30),
-            child: Image(
-              width: 60,
-              height: 60,
-              image: AssetImage('assets/logo.png.png'),
+    return Container(
+     // color: Colors.lightBlueAccent,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 40.0, left: 10),
+        child: Row(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30),
+              child: Image(
+                width: 60,
+                height: 60,
+                image: AssetImage('assets/logo.png.png'),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Bliss',
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height / 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Bliss',
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height / 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-                Text(
-                  'mental health matters',
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height / 50,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                  Text(
+                    'Mental Health Matters',
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height / 50,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
 
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
